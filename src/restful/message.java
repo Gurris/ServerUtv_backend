@@ -1,5 +1,14 @@
 package restful;
 
+import bo.Log;
+import bo.Log_handler;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import bo.*;
 
 import javax.ws.rs.*;
@@ -7,13 +16,18 @@ import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import bo.User;
 import bo.User_handler;
+/**
+ * Created by Gurris on 2016-12-01.
+ */
+
+
 
 /**
  * Created by Gurris on 2016-12-01.
  */
-@Path("/log")
-public class log {
-
+@Path("/message")
+public class message {
+/*
     @Path("/getUserLogFromUId/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -21,12 +35,14 @@ public class log {
         ArrayList<Log> log = Log_handler.getUserLogFromUId(id);
         return log;
     }
-
-    @Path("/addToUserLog/{toUser}/{fromUser}/{log_message}")
+*/
+    @Path("/getUserLogFromUId/{message}")
     @GET
-    public void addToUserLog(@PathParam("toUser")int toUser, @PathParam("fromUser")int fromUser, @PathParam("log_message")String log_message ){
-        Log_handler.addToUserLog(toUser, fromUser, log_message);
+    @Produces(MediaType.APPLICATION_JSON)
+    public void sendMessageToId(){
+
     }
+
 
 
 }

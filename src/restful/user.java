@@ -36,27 +36,16 @@ public class user {
         return users;
     }
 
-    @Path("/findUsersByName/{name}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<User> findUsersByName(@PathParam("name")String name){
-        List<User> users = User_handler.findUsersByName(name);
-        return users;
-    }
-
     @Path("/registerUser")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public boolean registerUser(User usr){
+        System.out.println("REGISTARTION DATA!");
         boolean result = User_handler.registerUser(usr);
         System.out.println("result: " + result);
         return result;
     }
-
-
-
-
 
 
 }
