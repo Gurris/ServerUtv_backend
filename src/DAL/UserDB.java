@@ -43,23 +43,6 @@ public class UserDB {
         }
     }
 
-    public static void test(){
-        try{
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("NewPersistenceUnit");
-            EntityManager em = emf.createEntityManager();
-            em.getTransaction().begin();
-            UserEntity te = new UserEntity();
-            //te.setNumber(9001);
-            em.persist(te);
-            em.getTransaction().commit();
-        }catch (Exception e){
-            System.out.println("------UserDB / test---------");
-            e.printStackTrace();
-            System.out.println("----------------------------------");
-            e.printStackTrace();
-        }
-    }
-
     public static List<UserEntity> getAll(){
         try{
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("NewPersistenceUnit");

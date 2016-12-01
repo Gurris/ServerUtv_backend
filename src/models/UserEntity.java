@@ -7,7 +7,14 @@ import java.util.Collection;
  * Created by Gurris on 2016-11-30.
  */
 @Entity
-@Table(name = "user", schema = "serverutv", catalog = "")
+@Table(name = "user", schema = "serverutv")
+@NamedQueries({
+        @NamedQuery(name="UserEntity.findAll",
+                query="SELECT u FROM UserEntity u"),
+
+        @NamedQuery(name="UserEntity.findUserByName",
+                query="SELECT u FROM UserEntity u WHERE u.username=:name")
+})
 public class UserEntity {
     private int id;
     private String username;
