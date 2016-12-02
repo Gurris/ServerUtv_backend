@@ -4,6 +4,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import bo.User;
 import bo.User_handler;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,8 +33,8 @@ public class user {
     @Path("/getAllUsers")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<User> getAllUsers(){
-        List<User> users = User_handler.getAllUsers();
+    public ArrayList<User> getAllUsers(){
+        ArrayList<User> users = User_handler.getAllUsers();
         return users;
     }
 

@@ -21,26 +21,22 @@ import bo.User_handler;
  */
 
 
-
-/**
- * Created by Gurris on 2016-12-01.
- */
 @Path("/message")
 public class message {
-/*
-    @Path("/getUserLogFromUId/{id}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<Log> getUserLogFromUId(@PathParam("id")int id){
-        ArrayList<Log> log = Log_handler.getUserLogFromUId(id);
-        return log;
-    }
-*/
-    @Path("/getUserLogFromUId/{message}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public void sendMessageToId(){
 
+    @Path("/sendMessageToId")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void sendMessageToId(Message msg){
+        Message_handler.sendMessageToId(msg);
+    }
+
+    @Path("/getMessagesForUser/{username}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<Message> getMessagesForUser(@PathParam("username")String username){
+        ArrayList<Message> messages = Message_handler.getMessagesForUser(username);
+        return messages;
     }
 
 

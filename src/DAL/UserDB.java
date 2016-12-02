@@ -3,6 +3,7 @@ package DAL;
 import models.UserEntity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,13 +44,13 @@ public class UserDB {
         }
     }
 
-    public static List<UserEntity> getAll(){
+    public static ArrayList<UserEntity> getAll(){
         try{
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("NewPersistenceUnit");
             EntityManager em = emf.createEntityManager();
             TypedQuery<UserEntity> query = em.createNamedQuery("UserEntity.findAll", UserEntity.class);
 
-            List<UserEntity> result = query.getResultList();
+            ArrayList<UserEntity> result = (ArrayList<UserEntity>) query.getResultList();
             return result;
         }catch (Exception e){
             System.out.println("------UserDB / getAll---------");
@@ -85,7 +86,6 @@ public class UserDB {
             em.persist(user);
             em.flush();
             em.getTransaction().commit();
-            System.out.println("HERERERERERERERERER:::::: " + user.getId());
             return true;
         }catch (Exception e){
             System.out.println("------UserDB / registerUser---------");

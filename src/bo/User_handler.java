@@ -43,36 +43,23 @@ public class User_handler {
         return user;
     }
 
-    public static List<User> getAllUsers(){
+    public static ArrayList<User> getAllUsers(){
         System.out.println("GET ALL USERS");
-        List<UserEntity> users = UserDB.getAll();
-        List<User> newList = new ArrayList<>();
+        ArrayList<UserEntity> users = UserDB.getAll();
+        ArrayList<User> newList = new ArrayList<>();
         for(int i=0; i<users.size(); i++){
             User tmp = new User();
             tmp.setId(users.get(i).getId());
             tmp.setFirstname(users.get(i).getFirstname());
             tmp.setLastname(users.get(i).getLastname());
             tmp.setUsername(users.get(i).getUsername());
-
-            List<Log> uLog = Log_handler.getUserLogFromUId(users.get(i).getId());
+            //List<Log> uLog = Log_handler.getUserLogFromUId(users.get(i).getId());
             newList.add(tmp);
         }
         return newList;
     }
 
-    public static List<User> findUsersByName(String username){ // all users with name like username
-        List<UserEntity> users = UserDB.findUsersByUsername(username);
-        List<User> newList = new ArrayList<>();
-        for(int i=0; i<users.size(); i++){
-            User tmp = new User();
-            tmp.setId(users.get(i).getId());
-            tmp.setFirstname(users.get(i).getFirstname());
-            tmp.setLastname(users.get(i).getLastname());
-            tmp.setUsername(users.get(i).getUsername());
-            newList.add(tmp);
-        }
-        return newList;
-    }
+
 
     public static User getUserById(int id){
 

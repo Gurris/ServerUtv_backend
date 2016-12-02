@@ -22,11 +22,11 @@ public class log {
         return log;
     }
 
-    @Path("/addToUserLog/{toUser}/{fromUser}/{log_message}")
-    @GET
-    public void addToUserLog(@PathParam("toUser")int toUser, @PathParam("fromUser")int fromUser, @PathParam("log_message")String log_message ){
-        Log_handler.addToUserLog(toUser, fromUser, log_message);
+    @Path("/addToUserLog")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void addToUserLog(Log log){
+        Log_handler.addToUserLog(log.getToUserId(), log.getFromUserId(), log.getLog_message());
     }
-
 
 }

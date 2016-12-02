@@ -8,6 +8,24 @@ public class Log {
     private String fromUser;
     private String toUser;
     private String log_message;
+    private int toUserId;
+    private int fromUserId;
+
+    public int getToUserId() {
+        return toUserId;
+    }
+
+    public void setToUserId(int toUserId) {
+        this.toUserId = toUserId;
+    }
+
+    public int getFromUserId() {
+        return fromUserId;
+    }
+
+    public void setFromUserId(int fromUserId) {
+        this.fromUserId = fromUserId;
+    }
 
     public int getId() {
         return Id;
